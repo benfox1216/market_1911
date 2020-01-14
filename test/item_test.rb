@@ -12,8 +12,7 @@ class ItemTest < Minitest::Test
   end
   
   def test_it_has_attributes
-    require "pry"; binding.pry
     assert_equal "Peach", @item1.name
-    assert_equal "0.75", @item1.price
+    assert_equal "$0.75", @item1.price
   end
 end
