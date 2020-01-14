@@ -39,4 +39,8 @@ class Market
     
     inventory
   end
+  
+  def sell(item, amt)
+    
+  end
 end
