@@ -32,6 +32,13 @@ class ItemTest < Minitest::Test
     assert_equal [@vendor1], @market.vendors
   end
   
+  def test_it_can_return_vendor_names
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    
+    assert_equal ["Rocky Mountain Fresh", "Ba-Nom-a-Nom"], @market.vendor_names
+  end
+  
   def test
     @vendor1.stock(item1, 35)
     @vendor1.stock(item2, 7)
