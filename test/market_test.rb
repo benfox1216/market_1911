@@ -39,15 +39,14 @@ class ItemTest < Minitest::Test
     assert_equal ["Rocky Mountain Fresh", "Ba-Nom-a-Nom"], @market.vendor_names
   end
   
-  def test
-    @vendor1.stock(item1, 35)
-    @vendor1.stock(item2, 7)
-    @vendor2.stock(item4, 50)
-    @vendor2.stock(item3, 25)
-    @vendor3.stock(item1, 65)
-
+  def test_it_can_return_what_vendors_sell_given_item
+    @vendor1.stock(@item1, 35)
+    @vendor2.stock(@item1, 65)
+    @vendor3.stock(@item2, 25)
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
+    
+    assert_equal [@vendor1, @vendor2], @market.vendors_that_sell(@item1)
   end
 end
