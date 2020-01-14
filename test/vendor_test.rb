@@ -27,5 +27,8 @@ class ItemTest < Minitest::Test
   def test_it_can_add_items_to_inventory
     @vendor.stock(@item1, 30)
     assert_equal ({@item1 => 30}), @vendor.inventory
+    
+    @vendor.stock(@item1, 25)
+    assert_equal ({@item1 => 55}), @vendor.inventory
   end
 end
