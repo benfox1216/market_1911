@@ -48,6 +48,7 @@ class Market
         if vendor.inventory.keys.include?(item)
           if vendor.inventory[item] >= amt
             vendor.inventory[item] -= amt
+            amt = 0
           else
             amt -= vendor.inventory[item]
             vendor.inventory[item] = 0
