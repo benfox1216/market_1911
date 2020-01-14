@@ -17,5 +17,10 @@ class ItemTest < Minitest::Test
   
   def test_it_has_attributes
     assert_equal "Rocky Mountain Fresh", @vendor.name
+    assert_equal ({}), @vendor.inventory
+  end
+  
+  def test_it_can_check_stock_of_given_item
+    assert_equal 0, @vendor.check_stock(@item1)
   end
 end
