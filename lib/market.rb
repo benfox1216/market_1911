@@ -27,4 +27,16 @@ class Market
       end
     end.flatten.uniq.sort
   end
+  
+  def total_inventory
+    inventory = Hash.new(0)
+    
+    @vendors.each do |vendor|
+      vendor.inventory.keys.each do |item|
+        inventory[item] += vendor.inventory[item]
+      end
+    end
+    
+    inventory
+  end
 end
